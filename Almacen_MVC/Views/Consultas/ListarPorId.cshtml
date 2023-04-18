@@ -1,0 +1,91 @@
+﻿@model Almacen_MVC.AlmacenMVC.Entities.Producto
+@{
+    ViewBag.Title = "ListarPorId";
+}
+
+<br />
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <p id="busqueda">Busqueda por Id</p>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+    <p id="bid" class="text-warning fs-3">Escriba un Id</p>
+</div>
+<br />
+<hr />
+@using (Html.BeginForm())
+{
+<center>
+    @Html.Label("Id: ")
+    @Html.TextBox("id", "")<br />
+    @Html.ValidationMessage("error", new { @class = "messageDate" })
+
+    <br />
+    <br />
+    @if (Model != null)
+    {
+
+        <table class="table table-responsive table-warning table-hover">
+            <thead class="table-danger">
+                <tr>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Presentacion
+                    </th>
+                    <th>
+                        PMayoreo
+                    </th>
+                    <th>
+                        PMenudeo
+                    </th>
+                    <th>
+                        Existencia
+                    </th>
+                    <th>
+                        CostoUnitario
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        @Model.Nombre
+                    </td>
+                    <td>
+                        @Model.Presentacion
+                    </td>
+                    <td>
+                        @Model.PMayoreo
+                    </td>
+                    <td>
+                        @Model.PMenudeo
+                    </td>
+                    <td>
+                        @Model.Existencia
+                    </td>
+                    <td>
+                        @Model.CostoUnitario
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    }
+    @*@if (ViewData["modeloVacio"] != null)
+    {
+        if ((bool)ViewData["modeloVacio"])
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationMessage("error")
+            </div>
+        }
+    }*@
+
+    <br />
+    <input type="submit" value="Visualiza" class="btn btn-danger" />
+</center>
+}
+
+
+

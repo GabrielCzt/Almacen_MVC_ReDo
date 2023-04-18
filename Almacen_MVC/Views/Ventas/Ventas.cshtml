@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Ventas";
+}
+<br />
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <p class="text-danger fs-3">Venta de un Producto</p>
+</div>
+<div class="mb-2">
+    <p class="text-warning fs-5"><strong>Seleccione Id del Producto</strong></p>
+    @Html.DropDownList("IdProducto", ViewData["IdsProductos"] as List<SelectListItem>,
+        new {@class = "form-control"})
+</div>
+<div class="mb-0">
+    @ViewData["Descripcion"]
+</div>
+<br />
+<hr />
+@using (Html.BeginForm())
+ {
+    <div class="container">
+        <div class="row border mb-2">
+            <div class=" col-sm-12 col-md-12">
+                Cantidad:&nbsp; 
+                @Html.TextBox("Cantidad")
+            </div>
+        </div>
+        <div class="row border border-warning">
+            <div class="col-sm-6 col-md-6 mt-3">
+                <div class="card text-dark bg-light mb-3" style="max-width:18rem;">
+                    <div class="card-header text-center">Precio Mayoreo</div>
+                    <div class="card-body text-center">
+                        @Html.RadioButton("MayoreoMenudeo","Mayoreo") 
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 mt-3">
+                <div class="card text-dark bg-light mb-3" style="max-width:18rem;">
+                    <div class="card-header text-center">Precio Menudeo</div>
+                    <div class="card-body text-center">
+                        @Html.RadioButton("MayoreoMenudeo","Menudeo")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border border-warning">
+            <div class="col-sm-12 col-md-12 mt-3">
+                <div class="card text-dark bg-light mb-3" style="max-width:18rem;">
+                    <div class="card-header text-center">Descuento 20%</div>
+                    <div class="card-body text-center">
+                        @Html.CheckBox("Descuento")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border border-warning mt-2">
+            <div class="col-sm-12 col-md-12">
+                <p class="text-danger fs-5"><strong>Total a Pagar:&nbsp;@ViewData["TotalPago"]</strong></p>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-sm-12 col-md-12">
+                <input type="submit" name="Operacion" value="Calcular" class="btn btn-outline-warning" />
+                @if (Convert.ToBoolean(ViewBag.RegistrarVenta))
+                {
+                    <input type="submit" name="Operacion" value="Registrar_Venta" class="btn btn-outline-warning" />
+                }
+                else
+                {
+                    <input type="submit" name="Operacion" value="Registrar_Venta" class="btn btn-outline-warning" disabled="disabled" />
+                }
+                <p class="text-danger fs-5 mt-2"><strong>@ViewData["Error"]</strong></p>
+            </div>
+        </div>
+
+    </div>
+ }
+
+@*Ventana Modal*@
+
+<div class="modal fade" id="PreguntaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header mx-auto">
+                <h6 class="modal-title" style="color:saddlebrown" id="exampleModalLabel">Pregunta</h6>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row mt-2">
+                        <div class="col-sm-12 col-md-12 d-flex justify-content-center align-items-center">
+                            <p class="text-danger text-center mt-2">¿Desea registrar la venta?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="Operacion" value="Registrar" class="btn btn-outline-warning" />
+                &nbsp; <button type="button" class="btn btn-outline-warning" style="font-size:small" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

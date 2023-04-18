@@ -1,0 +1,77 @@
+﻿@model List<Almacen_MVC.AlmacenMVC.Entities.Producto>
+
+@{
+    ViewBag.Title = "ListarPorNombre";
+}
+
+<br />
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <p id="busqueda">Busqueda por Nombre</p>
+</div> 
+<div class="d-flex justify-content-center align-items-center">
+    <p id="bid" class="text-warning fs-3">Seleccione Producto</p>
+</div>
+<br />
+<hr />
+@using (Html.BeginForm())
+ {
+    <center>
+        @Html.Label("Nombre: ")
+        @Html.DropDownList("Nombre", ViewData["NombreProductos"] as List<SelectListItem>)
+        <br />
+        <br />
+        @if(Model != null)
+         {
+            <table class="table table-responsive table-warning table-hover">
+                <thead class="table-danger">
+                    <tr>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Presentacion
+                        </th>
+                        <th>
+                            PMayoreo
+                        </th>
+                        <th>
+                            PMenudeo
+                        </th>
+                        <th>
+                            Existencia
+                        </th>
+                        <th>
+                            CostoUnitario
+                        </th>
+                    </tr>                    
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            @Model[0].Nombre
+                        </td>
+                        <td>
+                            @Model[0].Presentacion
+                        </td>
+                        <td>
+                            @Model[0].PMayoreo
+                        </td>
+                        <td>
+                            @Model[0].PMenudeo
+                        </td>
+                        <td>
+                            @Model[0].Existencia
+                        </td>
+                        <td>
+                            @Model[0].CostoUnitario
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+         }
+        <br />
+        <input type="submit" value="Visualiza" class="btn btn-danger" />
+    </center>
+ }
+
+

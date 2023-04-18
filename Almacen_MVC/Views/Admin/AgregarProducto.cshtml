@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "AgregarProducto";
+}
+
+<br />
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <p class="text-danger fs-3">Agregar un Producto</p>
+</div>
+
+<br />
+<hr />
+@using (Html.BeginForm())
+{
+<div class="container">
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Nombre:&nbsp;
+            @Html.TextBox("Nombre", "", new { @required = "required" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Presentacion:&nbsp;
+            @Html.TextBox("Presentacion", "", new { @required = "required" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Precio Mayoreo:&nbsp;
+            @Html.TextBox("PMayoreo", "", new { @required = "required", @onchange = "validarNumero()" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Precio Menudeo:&nbsp;
+            @Html.TextBox("PMenudeo", "", new { @required = "required", @onchange = "validarNumero()" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Existencia:&nbsp;
+            @Html.TextBox("Existencia", "", new { @required = "required", @onchange = "validarNumero()" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Costo Unitario:&nbsp;
+            @Html.TextBox("CostoUnitario", "", new { @required = "required", @onchange = "validarNumero()" })
+        </div>
+    </div>
+    <div class="row border mb-2">
+        <div class=" col-sm-12 col-md-12">
+            Dirección de la imagen:&nbsp;
+            @Html.TextBox("ImagenPath", "", new { @required = "required" })
+        </div>
+    </div>
+
+    <input type="submit" name="Operacion" value="Agregar Producto" class="btn btn-outline-warning" />
+    <p class="text-danger fs-5 mt-2"><strong>@ViewData["Error"]</strong></p>
+</div>
+}
+
+@*Ventana Modal*@
+
+<div class="modal fade" id="PreguntaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header mx-auto">
+                <h6 class="modal-title" style="color:saddlebrown" id="exampleModalLabel">Pregunta</h6>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row mt-2">
+                        <div class="col-sm-12 col-md-12 d-flex justify-content-center align-items-center">
+                            <p class="text-danger text-center mt-2">Confirme la inserción del producto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="Operacion" value="Agregar" class="btn btn-outline-warning" />
+                &nbsp; <button type="button" class="btn btn-outline-warning" style="font-size:small" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        function validarNumero() {
+            let inputMayoreo = document.getElementById("PMayoreo");
+            let inputMenudeo = document.getElementById("PMenudeo");
+            let inputExistencia = document.getElementById("Existencia");
+            let inputCostoU = document.getElementById("CostoUnitario")
+            let _regex = /^[0-9]+$/;
+            let regex = /^[0-9]+([.][0-9]+)?$/;
+
+            if (inputMayoreo.value != "" && (!regex.test(inputMayoreo.value) || inputMayoreo.value<0)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor ingrese solo números positivos para el precio de MAYOREO.',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: 'red',
+                });
+                inputMayoreo.value = "";
+                inputMayoreo.focus();
+            }
+            if (inputMenudeo.value != "" && (!regex.test(inputMenudeo.value)) || inputMenudeo.value<0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor ingrese solo números positivos para el precio de MENUDEO.',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: 'red',
+                });
+                inputMenudeo.value = "";
+                inputMenudeo.focus();
+            }
+            if (inputExistencia.value != "" && (!_regex.test(inputExistencia.value)) || inputExistencia.value<0) {
+                Swal.fire({
+                    icon: 'error',                   
+                    title: 'Oops...',
+                    text: 'Por favor ingrese solo números positivos enteros para EXISTENCIAS',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: 'red',
+                });
+                inputExistencia.value = "";
+                inputExistencia.focus();
+            }
+            if (inputCostoU.value != "" && (!_regex.test(inputCostoU.value)) || inputCostoU.value<0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Por favor ingrese solo números positivos para el costo UNITARIO',
+                    confirmButtonText: 'Ok',
+                    confirmButtonColor: 'red',
+                });
+                inputCostoU.value = "";
+                inputCostoU.focus();
+            }
+
+        }
+    </script>
+    }

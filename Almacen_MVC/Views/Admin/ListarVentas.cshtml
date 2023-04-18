@@ -1,0 +1,92 @@
+﻿@model List<Almacen_MVC.AlmacenMVC.Entities.Venta>
+
+@{
+    ViewBag.Title = "ListarVentas";
+}
+
+<br />
+<div class="d-flex justify-content-center align-items-center mb-3">
+    <p id="busqueda">Listar Ventas</p>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+    <p id="bid" class="text-warning fs-3">Seleccione una Fecha</p>
+    
+</div>
+<br />
+<hr />
+@using (Html.BeginForm())
+{
+    <center>
+        @Html.TextBox("fecha", "", new { @class = "form-control", @id = "datepicker" })
+        @Html.ValidationMessage("error", new { @class = "messageDate" })
+        
+        <br />
+        <br />
+        @if (Model != null)
+        {
+            <table class="table table-responsive table-warning table-hover">
+                <thead class="table-danger">
+                    <tr>
+                        <th>
+                            VentaId
+                        </th>
+                        <th>
+                            ProductoId
+                        </th>
+                        <th>
+                            Cantidad
+                        </th>
+                        <th>
+                            TotalVenta
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>
+                            @Model[0].VentaId
+                        </td>
+                        <td>
+                            @Model[0].ProductoId
+                        </td>
+                        <td>
+                            @Model[0].Cantidad
+                        </td>
+                        <td>
+                            @Model[0].TotalVenta
+                        </td>
+                        <td>
+                            @Model[0].Fecha
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+
+
+                
+
+        <br />
+        <input type="submit" value="Visualiza" class="btn btn-danger" />
+    </center>
+
+
+}
+
+
+@section scripts {
+    <script>
+    $(document).ready(function () {
+        $("#datepicker").datepicker({
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+
+}
+

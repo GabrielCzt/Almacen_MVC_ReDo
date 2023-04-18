@@ -1,0 +1,230 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.fondo{
+    background-color: #F0F0E9;
+}
+
+/*Dirección Íconos Sociales*/
+
+ul li{
+    list-style:none;
+}
+
+.contactinfo li{
+    float:left;
+    list-style:none;
+    margin-left:10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+    .contactinfo li a{
+        text-decoration: none;
+        color: black;
+    }
+
+    .social-icons{
+        float:right;
+    }
+
+    .social-icons li{
+        float:left;
+        list-style:none;
+        font-size:13px;
+    }
+
+    .social-icons ul li a{
+        border: 0 none;
+        border-radius:0;
+        color:#696763;
+        padding:0px;
+    }
+
+        /*https://lenguajecss.com/css/animaciones/transiciones/ */
+
+        .social-icons ul li a i{
+            padding: 11px 15px;
+            transition: all 0.9s ease 0s;
+            -moz-transition: all 0.9s ease 0s;
+            -webkit-transition: all 0.9s ease 0s;
+            -o-transition: all 0.9s ease 0s;
+        }
+
+            .social-icons ul li a i:hover {
+                color: #fff;
+                transition: all 0.9s ease 0s;
+                -moz-transition: all 0.9s ease 0s;
+                -webkit-transition: all 0.9s ease 0s;
+                -o-transition: all 0.9s ease 0s;
+            }
+
+.fa-facebook-f:hover{
+    background: #0083C9;
+}
+.fa-twitter:hover{
+    background: #5BBCEC;
+}
+.fa-linkedin-in:hover{
+    background: #0083c9;
+}
+
+.fa-dribble:hover{
+    background: #90C9DC;
+}
+
+.fa-google-plus-g:hover{
+    background: #CE3C2D;
+}
+
+/*Titulos Bienvenida*/
+
+.Titulos h1{
+    color: #B4B1AB;
+}
+
+    .Titulos h1 span{
+        color: #FE980F;
+    }
+
+.Titulos h2{
+    color: #363432;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight:700;
+    margin-bottom: 22px;
+    margin-top:10px;
+}
+
+.Titulos h3{
+    color: #FE980F;
+}
+
+.Titulos p{
+    color: #363432;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+
+.Titulos button:hover{
+    background: #c0c0c0;
+    color:black;
+}
+
+.colorboton{
+    background: #FE980F;
+    border: 0 none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 23px;
+}
+
+/*NavBar*/
+.navbar-nav a {
+    font-size: 14px;
+}
+
+    .navbar-nav a i:hover {
+        color: white;
+    }
+
+.btn-danger {
+    font-size: 14px;
+    height: 30px;
+}
+
+/*Barra Navegación Izquierda*/
+
+.enlacedesplegable a {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.formatoenlace a {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.enlaces a {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/*footer*/
+.pie-superior {
+    background: #F0F0E9;
+    width: 360px;
+    height: 60px;
+}
+
+.container .companyinfo {
+    margin-top: 25px;
+    padding-top: 5px;
+}
+
+.companyinfo h2 {
+    color: #B4B1AB;
+    font-family: abel;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+    .companyinfo h2 span {
+        color: #FE980F;
+    }
+
+.companyinfo p {
+    color: #B3B3AD;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.pie-inferior {
+    background: #D6D6D0;
+    padding-top: 10px;
+}
+
+    .pie-inferior p {
+        color: #363432;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        font-size: 12px;
+        margin-left: 15px;
+    }
+
+        .pie-inferior p span a {
+            color: #FE980F;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+.posicion {
+    position: absolute;
+    top: 100px;
+    right: 55px;
+}
+
+.toast {
+    width: 280px;
+    height: 70px;
+}
+
+.messageDate{
+    font-size:10pt;
+    color:red;
+}

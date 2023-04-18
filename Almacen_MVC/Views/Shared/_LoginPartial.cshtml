@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    @Html.AntiForgeryToken()
+    <label class="text-white">@User.Identity.GetUserName()</label>
+    @Html.ActionLink("Cerrar Sesión", "LogOff", "Account", routeValues:null,
+    htmlAttributes: new {id="logoutForm", @class="btn btn-danger text-white-50"})
+}
+else
+{
+    @Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, 
+       htmlAttributes: new { id = "loginLink", @class="btn btn-danger text-white-50" })
+    
+}

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/FontAwesome/css")
+    @Styles.Render("~/Estilos/css")
+
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <header>
+                <div class="container fondo mb-1">
+                    <div class="row justify-content-between align-baseline-items-center">
+                        <div class="col-sm-12 col-md-6 mt-2">
+                            <div class="align-items-center contactinfo">
+                                <ul>
+                                    <li><a href="#"><i class="fas fa-phone"></i>(01)-(2222)- 36 33 55</a></li>
+                                    <li><a href="#"><i class="fas fa-envelope"></i>info@Eshopper.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="social-icons">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div>
+                <nav class="navbar navbar-expand-lg  navbar-light bg-dark">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars" aria-hidden="true" style="color:#FE980F;"></i></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="~/Imagenes/logo.png" class="d-inline-block align-top img-fluid" />
+                    </a>
+
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav mx-auto text-center">
+                            <a class="nav-link active text-white-50" href="#"><i class="fas fa-user me-1"></i>Cuenta</a>
+                            <a class="nav-link text-white-50" href="#"><i class="fas fa-crosshairs me-1"></i>Pagar</a>
+                            <a class="nav-link text-white-50" href="#"><i class="fas fa-shopping-cart me-1"></i>Carrito</a>
+                        </div>
+                        <div class="text-center">
+                            @Html.Partial("_LoginPartial")
+                            <a class="btn btn-danger text-white-50">Contacto</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                        <div class="enlaces mt-2">
+                            <h4><a href="#">Registro</a> </h4>
+                        </div>
+                        <div class="enlacedesplegable">
+                            <a data-bs-toggle="collapse" id="Admin" runat="server" visible="true" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="float-end"><i class="fas fa-plus"></i></span>
+                                Administrador
+                            </a>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <div class="d-flex flex-column">
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="Agregar" href="~/Admin/AgregarProducto">Agregar Producto</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="Listaventas" href="~/Admin/ListarVentas">ListaVentas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="enlacedesplegable">
+                            <a data-bs-toggle="collapse" id="A1" runat="server" visible="true" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="float-end"><i class="fas fa-plus"></i></span>
+                                Consultas
+                            </a>
+                        </div>
+                        <div class="collapse" id="collapseExample1">
+                            <div class="card card-body">
+                                <div class="d-flex flex-column">
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="Listar" href="~/Consultas/Listar">Listar</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="ListarId" href="~/Consultas/ListarPorId">ListarID</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="Busqueda" href="~/Consultas/ListarPorNombre">Búsqueda Nombre</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a id="Ventas" href="~/Ventas/Ventas">Ventas</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="enlacedesplegable mt-2">
+                            <a data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="float-end"><i class="fas fa-plus"></i></span>
+                                Básicos
+                            </a>
+                        </div>
+                        <div class="collapse" id="collapseExample2">
+                            <div class="card card-body">
+                                <div class="d-flex flex-column">
+                                    <div class="bd-highlight formatoenlace">
+                                        <a href="#">Harinas</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a href="#">Cereales</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a href="#">Pastas</a>
+                                    </div>
+                                    <div class="bd-highlight formatoenlace">
+                                        <a href="#">Lacteos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="enlaces mt-2">
+                            <h4><a href="#">Computadoras</a> </h4>
+                            <h4><a href="#">Pantallas</a></h4>
+                            <h4><a href="#">Audio</a></h4>
+                            <h4><a href="#">Memorias</a></h4>
+                        </div>
+                    </div>
+                    <section class="container col-sm-9 col-md-9">
+                        @RenderBody()
+                    </section>
+                </div>
+            </div>
+            <br />
+            <br />
+            <footer class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3">
+                    </div>
+                    <div class="col-sm-9 col-md-9">
+                        <div class="container pie-superior">
+                            <div class="companyinfo">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <h2 class="text-sm-center text-md-center"><span>e</span>-shopper</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <p class="text-sm-center text-md-center">Diagonal Defensores 505. Col. Mirador, Puebla (México)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container pie-inferior">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <p>Copyright © 2021 E-SHOPPER Inc. Todos los derechos reservados.</p>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <p class=" text-sm-end text-md-end">
+                                        Diseñado por:
+                                        <span><a href="Index.aspx">Gabriel Coronado</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        @Html.Raw(ViewBag.Modal)
+    }
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/Scripts/jquery-3.6.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.13.2.min.js"></script>
+</body>
+</html>
